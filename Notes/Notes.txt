@@ -1,0 +1,77 @@
+Before creating a server -
+
+1. npm init -y - it initiate node js application
+
+2. npm i express - install express package
+
+3. create file server.js
+
+----------------------------
+
+> when you call a server you create an instance of an server and save that instance in the variable -
+const app = express();
+
+> app.listen(3001,)
+this method .listen is used to start the server, 3001 is a port number
+
+> http - is a protocall used in api 
+GET, POST, PUT, DELETE - are methods used to interact with resources. 
+
+- these are the http methods of rest api used to interact with the resources in a restfull api  
+> GET => we use it when we want/fetch data from server to front-end
+> POST => we use it to send data to the server , front-end to server
+> PATCH => when server already has the data and we wants to update it.
+> DELETE => when we want to delete data from the server
+
+> app.post('/notes',(req,res)) // created api with post method, in the req we get the data that we send to the server, in the res we send the response back to the client
+
+> postman act as a front-end till the development phase of backend 
+
+> /notes/:index/ - inside route notes is a static part and index is dyanamic part 
+
+> we can define a dynamic route throught adding " : " to it 
+
+> and the dynamic part of the routes we concider it as a params
+
+--> DataBase -
+
+> first of all i have to connect the server to the database(server) by using IP address 
+> IP - Internet Protocall
+
+-> clusters - mongodb cluster is a group of server nodes that work together to run a single database
+
+> mongodb -> cluster -> DataBase 
+> first of all i have to create a cluster inside mongodb and then create a database inside that cluster
+> database is only stored inside cluster in mongodb 
+
+-Types of server -
+> web Server for hosting websites
+> mail Server for email
+> file Server for Data storage
+> Database Server for data management
+> Application Server for running applications
+> Proxy Server as intermediaries
+
+> mongodb provides 2 layer of security 
+> 1. network access layer
+> 2. database access layer -
+- inside this layer we define/create diffrent types of user to which user can performn diffrent type of operations
+
+> inside database there are only 4 operations - ( CRUD )
+- C - create
+- R - read
+- U - update
+- D - delete
+---------------------------
+
+Timeframe - 
+33:00
+46:00
+51:00
+56:00
+01:11:00
+01:25:00
+01:38:00
+01:43:00
+01:52:00
+02:10:00

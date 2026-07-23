@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Environment variables (Security keys)
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Production build output (if compiling)
+dist/
+build/
