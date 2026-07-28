@@ -4,8 +4,11 @@ Before creating a server -
 
 2. npm i express - install express package
 
-3. create file server.js
+3. create src/app.js - to get(express) and create server and export it 
 
+4. create file server.js - to start the server
+
+5. src/db/db.js - to connect server to database 
 ----------------------------
 
 > when you call a server you create an instance of an server and save that instance in the variable -
@@ -62,6 +65,13 @@ GET, POST, PUT, DELETE - are methods used to interact with resources.
 - R - read
 - U - update
 - D - delete
+
+> mongodb compass is a tool to see database inside our cluster and the data inside that database 
+
+> mongoose is a package used to connect server to the mongodb database 
+
+>  mongoose.connect method is used connect server to database with parameter like uri (connection string of cluster)
+
 ---------------------------
 
 Timeframe - 
@@ -75,3 +85,5 @@ Timeframe -
 01:43:00
 01:52:00
 02:10:00
+02:18:00
+02:24:00
