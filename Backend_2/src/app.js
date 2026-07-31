@@ -32,6 +32,5 @@ app.get('/notes',async(req,res)=>{
  })
 }) 
 
-
 module.exports = app // exporting the server instance
 

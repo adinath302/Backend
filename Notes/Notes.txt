@@ -9,6 +9,8 @@ Before creating a server -
 4. create file server.js - to start the server
 
 5. src/db/db.js - to connect server to database 
+
+6. schema - src/models/note.model.js to create schema ( structural blueprint )
 ----------------------------
 
 > when you call a server you create an instance of an server and save that instance in the variable -
@@ -70,8 +72,13 @@ GET, POST, PUT, DELETE - are methods used to interact with resources.
 
 > mongoose is a package used to connect server to the mongodb database 
 
->  mongoose.connect method is used connect server to database with parameter like uri (connection string of cluster)
+> mongoose.connect method is used connect server to database with parameter like uri (connection string of cluster)
 
+> schema - if you want to store any data in your database first you have to tell your database exactly how the data will look like & we call it creating schema
+and the more profound defination would be
+ - A database schema is the structural blueprint or framework that defines how data is organized, stored, and related within a Database Management System (DBMS).
+
+> noteModel - if you want to perform any operation(CRUD) on database related to note or about the perticular schema ,then you have to create a noteModule
 ---------------------------
 
 Timeframe - 
@@ -87,3 +94,4 @@ Timeframe -
 02:10:00
 02:18:00
 02:24:00
+02:45:00
