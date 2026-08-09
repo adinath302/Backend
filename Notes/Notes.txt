@@ -79,6 +79,15 @@ and the more profound defination would be
  - A database schema is the structural blueprint or framework that defines how data is organized, stored, and related within a Database Management System (DBMS).
 
 > noteModel - if you want to perform any operation(CRUD) on database related to note or about the perticular schema ,then you have to create a noteModule
+
+> Find() - method will allways give you data in "array of object" format 
+> FindOne() - method will give you only one data from that database, of which you give the details of
+   > But both will give you diffrent return when they return any data or if the data is not available there 
+    find --> [{},{}] & []
+    findOne --> {} , null
+
+// in findOneAndUpdate --> in first object to define which bases to update and in second object to define what to update
+
 ---------------------------
 
 Timeframe - 
@@ -95,3 +104,5 @@ Timeframe -
 02:18:00
 02:24:00
 02:45:00
+02:49:00
+02:55:00
