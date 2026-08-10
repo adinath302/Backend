@@ -1,5 +1,5 @@
 const app = require('./src/app.js')
-const connnectDb = require('./models/note.model.js')
+const connectDB = require('./src/db/db.js')
 
 connectDB();
 

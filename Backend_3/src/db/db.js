@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 async function connectDB(){
-    await mongoose.connect("mongodb+srv://adinathgaware23072003_db_user:81Yo1nhmBTJUy4DV@backend2.edels1j.mongodb.net/?appName=Backend2")
+    await mongoose.connect("mongodb+srv://adiDatabase2:c5tJrQr%25uzv2WDV@backend2.edels1j.mongodb.net/?retryWrites=true&w=majority")
 }
 
 console.log("connect to DB")
 
 module.exports = connectDB
+
+// mongodb+srv://adiDatabase2:c5tJrQr%uzv2WDV@backend2.edels1j.mongodb.net/?retryWrites=true&w=majority
+
