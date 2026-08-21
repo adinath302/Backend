@@ -62,7 +62,6 @@ app.delete('/notes/:id',async(req, res)=>{
     })
 })
 
-
 app.patch('/notes/:id',async(req,res)=>{
     const id = req.params.id 
 

@@ -74,6 +74,8 @@ GET, POST, PUT, DELETE - are methods used to interact with resources.
 
 > mongoose.connect method is used connect server to database with parameter like uri (connection string of cluster)
 
+> Mongoose is an Object Data Modeling (ODM) library for MongoDB Docs and Node.js. It acts as a translator or a structured bridge between raw MongoDB collections and your JavaScript code. While MongoDB is naturally "schema-less" (allowing documents in the same collection to have entirely different structures), Mongoose introduces a predictable, schema-based layer to your application
+
 > schema - if you want to store any data in your database first you have to tell your database exactly how the data will look like & we call it creating schema
 and the more profound defination would be
  - A database schema is the structural blueprint or framework that defines how data is organized, stored, and related within a Database Management System (DBMS).
@@ -87,6 +89,16 @@ and the more profound defination would be
     findOne --> {} , null
 
 // in findOneAndUpdate --> in first object to define which bases to update and in second object to define what to update
+
+> we can't store the image direactly to the database so we use cloud provider , to store that image and they give us url, and then we use that url to store in the database
+
+> app.use(express.json()) - it's a middlewear used before creating a api - In simpler terms, it allows you to access the data sent in a POST request from the client to the server. For example, if you're sending JSON data in a POST request, this middleware will parse that data and make it accessible in the req.body object in your route handlers.
+
+
+
+
+
+
 
 ---------------------------
 
@@ -106,3 +118,5 @@ Timeframe -
 02:45:00
 02:49:00
 02:55:00
+03:20:00
+03:32:00
