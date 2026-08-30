@@ -94,9 +94,9 @@ and the more profound defination would be
 
 > app.use(express.json()) - it's a middlewear used before creating a api - In simpler terms, it allows you to access the data sent in a POST request from the client to the server. For example, if you're sending JSON data in a POST request, this middleware will parse that data and make it accessible in the req.body object in your route handlers.
 
+> if we are not fix with the service we gone use for long term we move it into diffrent folder called service 
 
-
-
+> allways keep private keys in .env file 
 
 
 
