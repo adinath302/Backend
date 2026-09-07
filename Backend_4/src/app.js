@@ -2,9 +2,10 @@ const express = require("express");
 const multer = require('multer');
 const uploadFile = require('../src/services/storage.service.js')
 const postModel = require("../src/models/post.model.js");
+const cors = require("cors")
 
 const app = express();
-
+app.use(cors()) // to handle origin error which comes from using diffrent origin to interact  with 
 app.use(express.json()) // Middlewear used to
 
 const upload = multer({
@@ -41,12 +42,13 @@ app.get("/posts",async(req,res)=>{
         const posts = await postModel.find()
         return res.status(200).json({
             message:"we got the posts",
-            data:posts
+            post:posts
         })
     }catch(error){
             return res.status(500).json({message:"something went wrong"})
         }
 })
+
 
 app.delete("/posts/:id",async(req,res)=>{
     try{
