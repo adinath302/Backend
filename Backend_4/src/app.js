@@ -9,18 +9,23 @@ app.use(cors()) // to handle origin error which comes from using diffrent origin
 app.use(express.json()) // Middlewear used to
 
 const upload = multer({
-    storage:multer.memoryStorage(), 
+    storage:multer.memoryStorage(),
     limits:{fileSize:10*1024*1024} // 10MB image size Limit
 })
 
 app.post('/create-post',upload.single('image'), async(req,res)=>{
 try{
+
+    console.log("FILE:", req.file);
+    console.log("BODY:", req.body);
+
     if(!req.file){
         return res.status(400).json({message:"no image file provided"})
     }
     // We got a image file and we transfer it to the imagekit and they gave use a link in as a result 
     const result = await uploadFile(req.file.buffer)
-    console.log(result)
+    
+    console.log("imageKit resutl:", result)
     
     // and we pass the result 
     const post = await postModel.create({

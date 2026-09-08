@@ -66,39 +66,45 @@ const styles: Record<string, React.CSSProperties> = {
 
 import axios from "axios";
 const CreatePost = () => {
-  const handleSubmit = async (e: any) => {
-      e.preventDefault();
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
 
-      const formData = new FormData(e.target);
-      console.log("formdata request send", formData);
+    console.log("SUBMIT HANDLER FIRED");
 
-      axios
-        .post("http://localhost:3009/create-post", formData)
-        
-        .then((res) => {
-          // Example for Express/Helmet or similar middleware
-          // alert("Post created Successfully");
-          console.log(res);
-          e.target.reset();
-        })
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-        .catch((error) => {
-          console.log(error);
-          alert("Error creating post");
-        });
- 
+    console.log("image:", formData.get("image"));
+    console.log("caption:", formData.get("caption"));
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3009/create-post",
+        formData
+      );
+
+      console.log("SERVER RESPONSE:", res.data);
+
+      form.reset();
+    } catch (error) {
+      console.error("REQUEST ERROR:", error);
+    }
   };
 
   return (
     <section style={styles.section}>
       <h1 style={styles.heading}>Create post</h1>
-      <form style={styles.form} action="" onSubmit={handleSubmit}>
+
+      <form style={styles.form} onSubmit={handleSubmit}>
         <input
           type="file"
           name="image"
           accept="image/*"
           style={styles.fileInput}
         />
+
         <input
           type="text"
           name="caption"
@@ -106,6 +112,7 @@ const CreatePost = () => {
           required
           style={styles.textInput}
         />
+
         <button type="submit" style={styles.button}>
           Submit
         </button>
