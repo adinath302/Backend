@@ -5,6 +5,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    padding: "60px 20px",
     background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
   },
@@ -24,7 +25,7 @@ const styles: Record<string, React.CSSProperties> = {
     backdropFilter: "blur(16px)",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     borderRadius: "20px",
-    padding: "48px 40px",
+    padding:"28px 20px",
     width: "100%",
     maxWidth: "440px",
     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
@@ -65,10 +66,10 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const CreatePost = () => {
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("SUBMIT HANDLER FIRED");
@@ -79,17 +80,18 @@ const CreatePost = () => {
     console.log("image:", formData.get("image"));
     console.log("caption:", formData.get("caption"));
 
-    try {
-      const res = await axios.post(
-        "http://localhost:3009/create-post",
-        formData
-      );
-
-      console.log("SERVER RESPONSE:", res.data);
-
-      form.reset();
-    } catch (error) {
-      console.error("REQUEST ERROR:", error);
+    await axios
+      .post("http://localhost:3009/create-post", formData)
+      .then((res) => {
+        navigate("/feed");
+        form.reset();
+        console.log("SERVER RESPONSE:", res.data);
+      })
+      .catch((err) => {
+        console.log("SERVER ERROR:", err);
+      });
+    if (!form) {
+      return;
     }
   };
 

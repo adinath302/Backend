@@ -98,9 +98,92 @@ and the more profound defination would be
 
 > allways keep private keys in .env file 
 
+> - Authentication - inside it there are 4 things
+
+   1 - validation -
+             we check here the format of the data we are getting is right or wrong
+
+    for ex - 
+             mobail - 5269874236
+             email - xyz@gmail.com
+             name - kumar sanu
+             password - test@124
+
+   2 - varification - 
+
+             confirming a user's identity, checking data accuracy, or testing web code against requirements.
+
+             the data we are getting is right or wrong
+
+     for ex - 
+             mobail - 5269874236
+             email - xyz@gmail.com
+             name - kumar sanu
+             password - test@124
+
+             - here we are getting the email we allready validated that it's format is right but in varification we check the email is of that customer's or not, for that we sent an otp (for varification) to check the validated email is belongs to that customer or not 
+
+              Email Verification: A website sends a unique link or code to an email address after registration to prove the user owns it.
+              
+              SMS or Phone OTP: A one-time password text message is sent to a mobile phone to confirm an active phone number.
+              
+              Two-Step Verification (2FA): A user enters a password and then provides an extra code from an app or text message to log in.
+              
+              Biometric Verification: A web app uses fingerprint sensors or facial recognition via a device prompt (like WebAuthn) to sign in.
+              
+              Age Gates: A prompt asks a user to enter their birthdate or confirm they are over a specific age before viewing restricted content. 
+
+   3 - Authentication  -
+             Authentication confirms who you are.
+
+             identifying the user through which the request is comming on the server 
+
+             the process of verifying the identity of a user, device, or system before granting access to a website, application, or resource
+
+     for ex -
+              Logging into a website: You enter your username and a secret password to access your profile.
+
+              Unlocking a phone: You use your fingerprint or face scan to prove it is your device.
+
+              Showing a passport: An airline agent checks your physical passport to confirm your identity before you board.
 
 
----------------------------
+   4 - Authorization - 
+
+             Authorization determines what you are allowed to do or see after your identity is verified. Authentication always happens first
+             
+             Authorization in web applications is the process of checking what an authenticated user is allowed to see or do. While authentication confirms who you are (like typing in your password to log in), authorization decides which pages, files, or actions you can actually access once you are inside
+
+> types of authentication system - 
+
+            1 - token based
+            2 - session based
+
+                - Session-based and token-based authentication are the two primary ways a server remembers who you are after you log in.
+
+                The core difference is where the server keeps track of you: session-based relies on the server's memory, while token-based relies on a digital pass stored on your own device.
+
+                1 Token-Based Authentication (The Theme Park Wristband Analogy)
+
+                    Think of token-based authentication like a digital wristband at a theme park.
+                        
+                      How it works:
+
+                      1 You log in once.
+                        
+                      2 Instead of holding onto a "session" in its memory, the server prints a highly secure, encrypted digital wristband called a Token (often a JWT, or JSON Web Token) and hands it to your browser.
+                      
+                      3 Inside this token, your information is encoded (e.g., "This is Alex, and Alex is allowed to access the rollercoasters until 5:00 PM"). The token is signed with a secret key so it cannot be faked.
+                      
+                      4 Every time you click a page, your browser automatically shows this token. The server just checks the signature to make sure it is real. It does not need to look up your name in a database.
+                      
+                      Where data is stored: The data is stored entirely on your device (the client). The server is completely "stateless," meaning it forgets you the second it answers your request, until you show the token again.
+                      
+                      Best for: Modern web apps, mobile apps, and systems where one login needs to work across multiple different servers or services (like logging into Spotify using your Facebook account).
+
+
+
+--------------------------------------------------------------------------------------
 
 Timeframe - 
 33:00
@@ -123,4 +206,5 @@ Timeframe -
 03:51:00
 03:57:00
 04:03:00
-04:30:00
+04:42:00
+04:48:00
