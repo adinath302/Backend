@@ -2,11 +2,12 @@ const express = require('express');
 const multer = require('multer')
 const cors = require('cors');
 const postModel = require('./models/post.model');
+const uploadFile = require('./services/storage.service');
 const app = express()
 
 // Globle Middlewares
-app.use(express.json()) 
 app.use(cors())
+app.use(express.json()) 
 
 const upload = multer({
     storage:multer.memoryStorage(),
@@ -15,11 +16,19 @@ const upload = multer({
 
 app.post('/createPost',upload.single('image') ,async (req, res) => {
     try{
+
+        if(!req.file){
+            return res.status(400).json({message:"no image file provided"})
+        }
+
+        const result = await uploadFile(req.file.buffer)
+
         const post = await postModel.create({
-            caption:req.body,
-            image: req.file,
+            image: result.url,
+            caption:req.body.caption,
         })
-    return res.status(201).json({
+
+        return res.status(201).json({
         message:"message sent to the server",
         data:post
     })

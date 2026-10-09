@@ -40,7 +40,7 @@ try{
     console.log(error)
     return res.status(500).json({message:"something went wrong"})
 }  
-})
+});
 
 app.get("/posts",async(req,res)=>{
     try{
