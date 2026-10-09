@@ -36,5 +36,17 @@ app.post('/createPost',upload.single('image') ,async (req, res) => {
     return res.status(500).json({message:"something went wrong"})
     }
 });
+    
+app.get('/createPost',async (req,res)=>{
+    try{
+        const posts = await postModel.find()
+        return res.status(200).json({
+            message:'we got the data',
+            post:posts
+        })
+    }catch(error){
+    return res.status(500).json({message:'something went wrong while getting the data '})
+    }
+})
 
 module.exports = app
