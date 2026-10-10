@@ -27,7 +27,6 @@ app.post('/createPost',upload.single('image') ,async (req, res) => {
             image: result.url,
             caption:req.body.caption,
         })
-
         return res.status(201).json({
         message:"message sent to the server",
         data:post
@@ -36,8 +35,8 @@ app.post('/createPost',upload.single('image') ,async (req, res) => {
     return res.status(500).json({message:"something went wrong"})
     }
 });
-    
-app.get('/createPost',async (req,res)=>{
+  
+app.get('/posts',async (req,res)=>{
     try{
         const posts = await postModel.find()
         return res.status(200).json({
@@ -49,4 +48,26 @@ app.get('/createPost',async (req,res)=>{
     }
 })
 
+app.delete('/posts/:id',async(req,res)=>{
+try{
+    const id = req.params.id
+    const deletePost = await postModel.findByIdAndDelete(id)
+
+    if(!deletePost){
+    return res.status(404).json({
+        message:"post was not found"
+    })
+    }
+
+    return res.status(200).json({
+        message:'post was deleted',
+        posts:deletePost
+    })
+}catch(error){
+ return res.status(500).json({
+     message:"post was deleted",
+    error:error.message
+    })
+}
+})
 module.exports = app
