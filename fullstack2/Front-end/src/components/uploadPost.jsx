@@ -1,8 +1,9 @@
 import axios, { Axios } from 'axios';
-import React from 'react'
-import { useNavigate } from "react-router-dom"
+import React, { useState } from 'react'
+import { useNavigate, useSearchParams } from "react-router-dom"
 const uploadPost = () => {
     const navigation = useNavigate();
+    const [loading, setLoading] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("SUBMIT HANDLER FIRED");
@@ -12,11 +13,12 @@ const uploadPost = () => {
 
         console.log("image:", formData.get("image"));
         console.log("caption:", formData.get("caption"));
-
+        setLoading(true)
         await axios
             .post("http://localhost:3000/createPost", formData)
             .then((res) => {
                 navigation('/feed')
+                setLoading(false)
                 form.reset()
                 console.log("SERVER RESPONSE:", res.data);
             })
@@ -49,7 +51,7 @@ const uploadPost = () => {
                 />
 
                 <button type="submit" style={styles.button}>
-                    Submit
+                    {loading ? "Loading..." : "Submit"}
                 </button>
             </form>
         </section>

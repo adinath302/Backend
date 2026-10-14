@@ -9,4 +9,3 @@ console.log("connect to DB")
 module.exports = connectDB
 
 // mongodb+srv://adiDatabase2:c5tJrQr%uzv2WDV@backend2.edels1j.mongodb.net/?retryWrites=true&w=majority
-
