@@ -181,6 +181,7 @@ and the more profound defination would be
                       
                       Best for: Modern web apps, mobile apps, and systems where one login needs to work across multiple different servers or services (like logging into Spotify using your Facebook account).
 
+                        - every time user1(front-end) request to the server if the user1 logined it has to pass token id with them to the server , so that server could authenticated that this is a user1 
 --------------------------------------------------------------------------------------
 
 Timeframe - 
