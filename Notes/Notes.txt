@@ -182,6 +182,22 @@ and the more profound defination would be
                       Best for: Modern web apps, mobile apps, and systems where one login needs to work across multiple different servers or services (like logging into Spotify using your Facebook account).
 
                         - every time user1(front-end) request to the server if the user1 logined it has to pass token id with them to the server , so that server could authenticated that this is a user1 
+
+                    - to create token we have to install this package npm i jsonwebtoken to generate token id's
+                
+
+
+- folder structure update - 
+
+    - src/routes/auth.routes.js -
+          folder for creating  api only
+
+    - src/controllers/auth.controller.js
+          for writing logic for api 
+
+    - after this use of app.js file to create a server and run it and connect the auth.routes.js file with app.js 
+
+- prefix - a shared starting piece added to the front of a URL path or a module import 
 --------------------------------------------------------------------------------------
 
 Timeframe - 
@@ -208,3 +224,4 @@ Timeframe -
 04:42:00
 04:48:00
 05:00:00
+05:10:00
