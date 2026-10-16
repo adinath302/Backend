@@ -198,6 +198,28 @@ and the more profound defination would be
     - after this use of app.js file to create a server and run it and connect the auth.routes.js file with app.js 
 
 - prefix - a shared starting piece added to the front of a URL path or a module import 
+
+
+- Cookie
+
+- An HTTP cookie is a small text file created by a web server and saved on your computer or device by your web browser.
+
+How Cookies Work
+
+• Data Transfer: When you visit a website, the server sends a small piece of data (a cookie) to your browser using a Set-Cookie header.
+• Storage: Your browser saves this file locally on your device.
+• Return Visits: Whenever you click to another page or revisit the site, your browser sends that cookie back to the server so it can remember who you are. It works like a coat-check ticket: the website gives you a unique identifier tag to remember your status without storing your entire life story
+
+Cookies are the legacy storage mechanism primarily used for session management, tracking, and user authentication tokens.
+• Unlike web storage, cookies are automatically attached to the header of every HTTP network request to the server.
+• Because they travel over the network, keeping cookies small is vital to protect performance.
+• They support security attributes like HttpOnly (blocking JavaScript access to prevent cross-site scripting theft) and Secure (forcing transmission over HTTPS).
+
+- server can read and access the data from cookies and modify it also, on every request the data form the cookie will transfer to the server 
+
+- we save token in the cookies,
+- if i want to cookie in the express server we have to use a middleware which was  - npm i cookie-parser
+
 --------------------------------------------------------------------------------------
 
 Timeframe - 
@@ -224,4 +246,5 @@ Timeframe -
 04:42:00
 04:48:00
 05:00:00
-05:10:00
+05:26:00
+05:36:00
