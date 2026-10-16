@@ -220,6 +220,10 @@ Cookies are the legacy storage mechanism primarily used for session management, 
 - we save token in the cookies,
 - if i want to cookie in the express server we have to use a middleware which was  - npm i cookie-parser
 
+
+- when you create a token with the user_id , you will get that id when i varify the token by using jwt package, it allows your Express.js backend to know who is making the request in a stateless environment
+
+
 --------------------------------------------------------------------------------------
 
 Timeframe - 

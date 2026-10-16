@@ -8,7 +8,7 @@ async function registerUser(req,res){
     const isUserAlreadyExists = await userModel.findOne({
 email
     })
-    
+
     // if user is allready exists they show the response
     if(isUserAlreadyExists){
         return res.status(409).json({
@@ -21,7 +21,7 @@ email
         username,email,password
     })
 
-// here created the token 
+    // here created the token by using jwt package
     const token = jwt.sign({
         id:user._id,
     },process.env.JWT_SECRET)
@@ -29,7 +29,7 @@ email
     // set token using cookie
     res.cookie('token',token)
 
-// passed back as a res
+    // passed back as a res
     res.status(201).json({
         message:'User registerd successfully',
         user,
