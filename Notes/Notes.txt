@@ -223,7 +223,50 @@ Cookies are the legacy storage mechanism primarily used for session management, 
 
 - when you create a token with the user_id , you will get that id when i varify the token by using jwt package, it allows your Express.js backend to know who is making the request in a stateless environment
 
+- process.exit()  -
+       - process.exit() is a built-in method used to immediately terminate the running Node.js process.
 
+       When called, it stops the event loop synchronously and exits the application. It accepts an optional numeric exit code
+
+       • process.exit(0): Indicates a successful execution with no errors.
+
+        • process.exit(1) (or any non-zero number): Indicates a failure or unhandled error
+
+for example - 
+        
+1. Graceful Shutdown (The Most Common Use Case)
+
+When your server needs to restart or shut down (e.g., during a new deployment on Docker, Kubernetes, or PM2), the hosting environment sends a signal like SIGTERM or SIGINT. You use process.exit(0) after you clean up resources.
+• Example: You stop accepting new HTTP requests, close open database connections, finish active user requests, and then exit.
+javascript
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received. Cleaning up...');
+  server.close(() => {
+    // Close database connections, then exit safely
+    mongoose.connection.close(() => {
+      process.exit(0); 
+    });
+  });
+});
+
+- password hashing - 
+
+    - what is -
+      A password hash is a one-way mathematical transformation that turns a plaintext password into a fixed-length string of scrambled characters
+
+
+    - why hashing is important - 
+
+    Hashing is essential in backend development because it provides lightning-fast data lookups through hash tables, secures user passwords via one-way transformations, and verifies data integrity to prevent tampering
+
+    Password Security: Storing passwords as plain text is a massive security risk. Hashing (using slow, specialized algorithms like bcrypt or Argon2) turns passwords into irreversible strings so databases never hold the actual secret
+
+    - properties - 2
+    1 - same plaintext(password) generates same output(hash password value) (it will not change it's hash values)
+
+    2 - you cannot generate/convert hash(password) into plaintext
+
+we use  npm i bcryptjs to install the package for using hashing 
 --------------------------------------------------------------------------------------
 
 Timeframe - 
@@ -252,3 +295,7 @@ Timeframe -
 05:00:00
 05:26:00
 05:36:00
+05:59:00
+06:01:00
+06:25:00
+06:38:00
