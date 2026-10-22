@@ -53,6 +53,46 @@ const registerUser = async (req, res) => {
 
 async function loginUser(req, res) {
   const { username, email, password } = req.body;
+
+  // check the user in the database
+  const user = await userModel.findOne({
+    $or: [{ username }, { email }],
+  });
+
+  // check if the user data is not available
+  if (!user) {
+    return res.status(401).json({ message: "Invalid credintials" });
+  }
+
+  // confirming the using using password after hashing (it first create the password to hash and they compare it with the database password)
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  // if password is wrong
+  if (!isPasswordValid) {
+    return res.status(401).json({ message: "Invalid credentials (password)" });
+  }
+
+  // create a token
+  const token = await jwt.sign(
+    {
+      id: user._id,
+      role: user.role,
+    },
+    process.env.JWT_SECRET,
+  );
+
+  // passed it to the cookie
+  res.cookie("token", token);
+
+  res.status(200).json({
+    messsage: "User logged in succesfully",
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+    },
+  });
 }
 
-module.exports = { registerUser };
+module.exports = { registerUser, loginUser };
