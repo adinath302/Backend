@@ -267,6 +267,17 @@ process.on('SIGTERM', () => {
     2 - you cannot generate/convert hash(password) into plaintext
 
 we use  npm i bcryptjs to install the package for using hashing 
+
+
+- middleware - we use it to store repetative code which can be used for multiple places like custom hook ,
+      - it was 3 complesary parameters - req, res, next()
+      - next()-  to forward the request to the next code
+      - it can read all the data comes with "req" 
+      - it can modify all the data comes with "req" 
+      - it can send a res also 
+      -
+
+.populate() -  is used to automatically link documents across different collections, acting similarly to a SQL JOIN operation.
 --------------------------------------------------------------------------------------
 
 Timeframe - 
@@ -300,3 +311,5 @@ Timeframe -
 06:25:00
 06:38:00
 07:08:00
+07:21:00
+07:48:00
