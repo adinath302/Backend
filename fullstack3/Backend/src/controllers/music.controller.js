@@ -2,6 +2,7 @@ const musicModel = require("../model/music.model");
 const jwt = require("jsonwebtoken");
 const { uploadFile } = require("../services/storage.service");
 const albumModel = require("../model/album.model");
+const { json } = require("express");
 
 async function createMusic(req, res) {
   const { title } = req.body;
@@ -49,7 +50,11 @@ async function createAlbum(req, res) {
 }
 
 async function getAllMusics(req, res) {
-  const musics = await musicModel.find();
+  const musics = await musicModel
+    .find()
+    .skip(1) // it will skip the first music and give us remaining
+    .limit(10) // here we set a limit 0f 10 musics can server get though this
+    .populate("artist", "username email");
 
   res.status(200).json({
     message: "Musics fetched successfully",
@@ -82,6 +87,7 @@ async function getAlbumById(req, res) {
     album: album,
   });
 }
+
 
 module.exports = {
   createMusic,
